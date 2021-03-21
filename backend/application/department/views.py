@@ -38,7 +38,7 @@ class DepartmentView(BaseView):
             self.model().query.filter_by(name=name).first_or_404("Department not found")
         )
         department.delete()
-        return super(DepartmentView, self).delete(), 204
+        return super(DepartmentView, self).delete()
 
     @auth.login_required
     def put(self, name=None):
