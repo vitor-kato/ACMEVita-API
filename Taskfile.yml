@@ -1,0 +1,32 @@
+# https://taskfile.dev
+
+version: "3"
+
+dotenv: [".env", ".env.sample"]
+
+tasks:
+  default:
+    cmds:
+      - docker-compose up
+  build:
+    cmds:
+      - docker-compose build
+  config:
+    cmds:
+      - docker-compose config
+  bash:
+    cmds:
+      - docker-compose exec api bash
+  create-db:
+    cmds:
+      - docker-compose exec api flask create-all
+  drop-db:
+    cmds:
+      - docker-compose exec api flask drop-all
+  buildstart:
+    cmds:
+      - task: build
+      - task: up
+  lock:
+    cmds:
+      - pipenv lock --requirements > backend/requirements.txt

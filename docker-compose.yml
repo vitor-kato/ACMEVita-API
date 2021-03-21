@@ -1,0 +1,27 @@
+version: "3.7"
+
+services:
+  api:
+    image: ACMEVita-api:latest
+    build:
+      context: ./backend
+      target: "develop"
+    volumes:
+      - ./backend:/webapps
+    ports:
+      - 5000:5000
+    env_file:
+      - .env.sample
+      - .env
+
+  db:
+    image: postgres
+    volumes:
+      - postgres_data_dev:/var/lib/postgresql/data
+    env_file:
+      - .env.sample
+      - .env
+
+volumes:
+  postgres_data_dev:
+    driver: local
