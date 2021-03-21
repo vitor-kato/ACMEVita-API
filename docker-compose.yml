@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   api:
-    image: ACMEVita-api:latest
+    image: acmevita-api:latest
     build:
       context: ./backend
       target: "develop"
