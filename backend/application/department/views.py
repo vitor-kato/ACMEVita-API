@@ -42,12 +42,17 @@ class DepartmentView(BaseView):
 
     @auth.login_required
     def put(self, name=None):
-        super(DepartmentView, self).put()
-        department = (
-            self.model().query.filter_by(name=name).first_or_404("Department not found")
-        )
-        data = self.get_data()
+        try:
+            super(DepartmentView, self).put()
+            department = (
+                self.model()
+                .query.filter_by(name=name)
+                .first_or_404("Department not found")
+            )
+            data = self.get_data()
 
-        department.name = data.get("name", department.name)
-        department.save()
-        return self.jsonify(department), 200
+            department.name = data.get("name", department.name)
+            department.save()
+            return self.jsonify(department), 200
+        except IntegrityError:
+            self.abort(400, "Department with this name already exists")

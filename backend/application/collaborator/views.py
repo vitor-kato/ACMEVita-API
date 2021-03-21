@@ -52,21 +52,26 @@ class CollaboratorView(BaseView):
 
     @auth.login_required
     def put(self, id=None):
-        super(CollaboratorView, self).put()
-        collaborator = (
-            self.model().query.filter_by(id=id).first_or_404("Collaborator not found")
-        )
-        data = self.get_data(partial=True)
-        department = data.get("department")
-        if department:
-            department_instance = Department.query.filter_by(
-                name=department
-            ).first_or_404("Department not found")
-            collaborator.department = department_instance
+        try:
+            super(CollaboratorView, self).put()
+            collaborator = (
+                self.model()
+                .query.filter_by(id=id)
+                .first_or_404("Collaborator not found")
+            )
+            data = self.get_data(partial=True)
+            department = data.get("department")
+            if department:
+                department_instance = Department.query.filter_by(
+                    name=department
+                ).first_or_404("Department not found")
+                collaborator.department = department_instance
 
-        collaborator.full_name = data.get("full_name", collaborator.full_name)
-        collaborator.save()
-        return self.jsonify(collaborator), 200
+            collaborator.full_name = data.get("full_name", collaborator.full_name)
+            collaborator.save()
+            return self.jsonify(collaborator), 200
+        except IntegrityError:
+            self.abort(400, "Collaborator already exists")
 
 
 class CollaboratorDependents(BaseView):
