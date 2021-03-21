@@ -82,9 +82,16 @@ response = requests.request("GET", url, headers=headers)
 print(response.json())
 ```
 
+A list of all urls can be retrieved using the flask command:
+
+```sh
+./task bash
+flask urls
+```
+
 ### Postman
 
-Postman documentation is also provided on the `docs/postman` directory
+Postman documentation is provided on the `docs/postman` directory
 all endpoints are described in there with usage and examples
 
 ### Testing
