@@ -23,5 +23,19 @@ def init_app():
     db.init_app(app)
     ma.init_app(app)
 
+    from application.user import user_bp
+    from application.department import department_bp
+    from application.collaborator import collaborator_bp
+    from application.dependent import dependent_bp
+
     with app.app_context():
+
+        from . import routes  # pylint: disable
+
+        app.register_blueprint(user_bp)
+        app.register_blueprint(department_bp)
+        app.register_blueprint(collaborator_bp)
+        app.register_blueprint(dependent_bp)
+        app.register_blueprint(api_bp)
+
         return app
