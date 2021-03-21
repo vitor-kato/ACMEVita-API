@@ -1,0 +1,376 @@
+{
+	"info": {
+		"_postman_id": "51bfb0b3-0410-4c62-8380-02c57f60eda1",
+		"name": "ACMEVita",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Collaborator List",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/api/collaborator/",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"api",
+						"collaborator",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Collaborator",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"full_name\": \"{{fullname}}\",\n    \"department\": \"{{dept}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/api/collaborator/",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"api",
+						"collaborator",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Collaborator",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"full_name\": \"{{fullname}}\",\n    \"department\": \"{{dept}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/api/collaborator/1/",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"api",
+						"collaborator",
+						"1",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Department Detail",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{base-url}}/api/department/{{dept}}/",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"api",
+						"department",
+						"{{dept}}",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Department List",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{base-url}}/api/department/",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"api",
+						"department",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"{{user}}\",\n    \"password\": \"{{password}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/api/user/",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"api",
+						"user",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Dependent",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"full_name\": \"{{fullname}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/api/collaborator/1/relationships/dependents/",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"api",
+						"collaborator",
+						"1",
+						"relationships",
+						"dependents",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Department",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"{{dept}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/api/department/",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"api",
+						"department",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Collaborator",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/api/collaborator/1/",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"api",
+						"collaborator",
+						"1",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Department",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{base-url}}/api/department/{{dept}}/",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"api",
+						"department",
+						"{{dept}}",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Collaborator",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"{{dept}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/api/department/{{dept}}/",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"api",
+						"department",
+						"{{dept}}",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "{{password}}",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "{{user}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "user",
+			"value": "api"
+		},
+		{
+			"key": "password",
+			"value": "123"
+		},
+		{
+			"key": "base-url",
+			"value": "http://127.0.0.1:5000"
+		},
+		{
+			"key": "dept",
+			"value": "TI"
+		},
+		{
+			"key": "fullname",
+			"value": "John Doe"
+		}
+	]
+}

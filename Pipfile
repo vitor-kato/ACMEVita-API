@@ -1,0 +1,28 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+flask = "*"
+flask-sqlalchemy = "*"
+flask-restful = "*"
+sqlalchemy = "==1.3.23"
+marshmallow = "*"
+flask-marshmallow = "*"
+marshmallow-sqlalchemy = "*"
+flask-httpauth = "*"
+passlib = "*"
+pytest = "*"
+psycopg2-binary = "*"
+requests = "*"
+
+[dev-packages]
+black = "*"
+pre-commit = "*"
+
+[requires]
+python_version = "3.8"
+
+[pipenv]
+allow_prereleases = true
